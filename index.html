@@ -20,7 +20,7 @@
         .container {
             max-width: 800px;
             padding: 20px;
-            background-color: #1e1e1e;
+            background-color: rgba(30, 30, 30, 0.8);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             position: relative;
@@ -31,6 +31,7 @@
             position: absolute;
             white-space: nowrap;
             animation: swim 8s linear infinite;
+            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
         }
         .fish:nth-child(2) { 
             font-size: 20px; 
@@ -77,6 +78,48 @@
                 transform: scaleX(-1);
             }
         }
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: rise 5s infinite;
+            opacity: 0.8;
+        }
+        .bubble:nth-child(6) {
+            width: 10px;
+            height: 10px;
+            left: 20%;
+            animation-duration: 7s;
+            animation-delay: -2s;
+        }
+        .bubble:nth-child(7) {
+            width: 15px;
+            height: 15px;
+            left: 50%;
+            animation-duration: 5s;
+            animation-delay: -3s;
+        }
+        .bubble:nth-child(8) {
+            width: 8px;
+            height: 8px;
+            left: 80%;
+            animation-duration: 6s;
+            animation-delay: -1s;
+        }
+        @keyframes rise {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+            }
+        }
         h1 {
             font-size: 72px;
             color: #76c7c0;
@@ -96,6 +139,9 @@
         <div class="fish">><(((('></div>
         <div class="fish">><(((('></div>
         <div class="fish">><(((('></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
         <h1>Pijana Ryba</h1>
         <p>"Pijana rybo! Ojczyzno moja! Ty jesteś jak wódka, Ile cię trzeba pić, ten tylko się dowie, Kto cię wypił. Dziś smak twój w całej ostrości Widzę i opisuję, bo tęsknię po tobie."</p>
     </div>
