@@ -6,36 +6,96 @@
     <title>Pijana Ryba</title>
     <style>
         body {
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
+            background-color: #121212;
+            font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             text-align: center;
+            color: #e0e0e0;
+            overflow: hidden;
         }
         .container {
             max-width: 800px;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
+            position: relative;
+        }
+        .fish {
+            font-size: 24px;
+            color: #76c7c0;
+            position: absolute;
+            white-space: nowrap;
+            animation: swim 8s linear infinite;
+        }
+        .fish:nth-child(2) { 
+            font-size: 20px; 
+            color: #ff6b6b;
+            animation-duration: 9s; 
+            animation-delay: -3s;
+            top: 30%;
+        }
+        .fish:nth-child(3) { 
+            font-size: 16px; 
+            color: #f8e71c;
+            animation-duration: 7s; 
+            animation-delay: -6s;
+            top: 70%;
+        }
+        .fish:nth-child(4) { 
+            font-size: 28px; 
+            color: #50e3c2;
+            animation-duration: 10s; 
+            animation-delay: -9s;
+            top: 40%;
+        }
+        .fish:nth-child(5) { 
+            font-size: 22px; 
+            color: #7ed321;
+            animation-duration: 6s; 
+            animation-delay: -2s;
+            top: 60%;
+        }
+        @keyframes swim {
+            0% {
+                left: -200px;
+                transform: scaleX(1);
+            }
+            50% {
+                left: calc(100% + 200px);
+                transform: scaleX(1);
+            }
+            50.01% {
+                transform: scaleX(-1);
+            }
+            100% {
+                left: -200px;
+                transform: scaleX(-1);
+            }
         }
         h1 {
             font-size: 72px;
-            color: #2c3e50;
+            color: #76c7c0;
             margin-bottom: 20px;
         }
         p {
             font-size: 24px;
-            color: #34495e;
+            color: #e0e0e0;
             line-height: 1.6;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="fish">><(((('></div>
+        <div class="fish">><(((('></div>
+        <div class="fish">><(((('></div>
+        <div class="fish">><(((('></div>
+        <div class="fish">><(((('></div>
         <h1>Pijana Ryba</h1>
         <p>"Pijana rybo! Ojczyzno moja! Ty jesteś jak wódka, Ile cię trzeba pić, ten tylko się dowie, Kto cię wypił. Dziś smak twój w całej ostrości Widzę i opisuję, bo tęsknię po tobie."</p>
     </div>
