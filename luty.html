@@ -5,28 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pijana Ryba - Luty</title>
     <style>
+        /* Reset marginesów i paddingów */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Stylowanie body */
         body {
             background-color: #121212;
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
+            min-height: 100vh;
             color: #e0e0e0;
             overflow: hidden;
             position: relative;
         }
+
+        /* Kontener główny */
         .container {
             max-width: 800px;
+            width: 90%;
             padding: 20px;
             background-color: rgba(30, 30, 30, 0.8);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             position: relative;
             z-index: 2;
+            text-align: center;
         }
+
+        /* Ryby */
         .fish {
             font-size: 24px;
             color: #76c7c0;
@@ -34,52 +46,60 @@
             white-space: nowrap;
             animation: swim 8s linear infinite;
             filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
+            z-index: 1;
         }
-        .fish:nth-child(2) { 
-            font-size: 20px; 
+
+        .fish:nth-child(2) {
+            font-size: 20px;
             color: #ff6b6b;
-            animation-duration: 9s; 
+            animation-duration: 9s;
             animation-delay: -3s;
             top: 30%;
         }
-        .fish:nth-child(3) { 
-            font-size: 16px; 
+
+        .fish:nth-child(3) {
+            font-size: 16px;
             color: #f8e71c;
-            animation-duration: 7s; 
+            animation-duration: 7s;
             animation-delay: -6s;
             top: 70%;
         }
-        .fish:nth-child(4) { 
-            font-size: 28px; 
+
+        .fish:nth-child(4) {
+            font-size: 28px;
             color: #50e3c2;
-            animation-duration: 10s; 
+            animation-duration: 10s;
             animation-delay: -9s;
             top: 40%;
         }
-        .fish:nth-child(5) { 
-            font-size: 22px; 
+
+        .fish:nth-child(5) {
+            font-size: 22px;
             color: #7ed321;
-            animation-duration: 6s; 
+            animation-duration: 6s;
             animation-delay: -2s;
             top: 60%;
         }
+
         @keyframes swim {
             0% {
-                left: -200px;
+                left: -10%;
                 transform: scaleX(1);
             }
             50% {
-                left: calc(100% + 200px);
+                left: 110%;
                 transform: scaleX(1);
             }
             50.01% {
                 transform: scaleX(-1);
             }
             100% {
-                left: -200px;
+                left: -10%;
                 transform: scaleX(-1);
             }
         }
+
+        /* Bąbelki */
         .bubble {
             position: absolute;
             bottom: -50px;
@@ -87,7 +107,9 @@
             border-radius: 50%;
             animation: rise 5s infinite;
             opacity: 0.8;
+            z-index: 1;
         }
+
         .bubble:nth-child(6) {
             width: 10px;
             height: 10px;
@@ -95,6 +117,7 @@
             animation-duration: 7s;
             animation-delay: -2s;
         }
+
         .bubble:nth-child(7) {
             width: 15px;
             height: 15px;
@@ -102,6 +125,7 @@
             animation-duration: 5s;
             animation-delay: -3s;
         }
+
         .bubble:nth-child(8) {
             width: 8px;
             height: 8px;
@@ -109,6 +133,7 @@
             animation-duration: 6s;
             animation-delay: -1s;
         }
+
         @keyframes rise {
             0% {
                 bottom: -50px;
@@ -122,16 +147,22 @@
                 opacity: 0;
             }
         }
+
+        /* Nagłówek */
         h1 {
-            font-size: 72px;
+            font-size: 48px;
             color: #76c7c0;
             margin-bottom: 20px;
         }
+
+        /* Paragraf */
         p {
-            font-size: 24px;
+            font-size: 18px;
             color: #e0e0e0;
             line-height: 1.6;
         }
+
+        /* Płatki śniegu */
         .snowflake {
             position: absolute;
             top: -10%;
@@ -139,27 +170,65 @@
             font-size: 20px;
             animation: fall linear infinite;
             z-index: 1;
+            user-select: none;
         }
+
         @keyframes fall {
             0% {
-                transform: translateY(0);
+                transform: translateY(0) translateX(0);
             }
             100% {
-                transform: translateY(110vh);
+                transform: translateY(110vh) translateX(50vw);
             }
         }
+
+        /* Serca */
         .heart {
             position: absolute;
             color: #ff6b6b;
             font-size: 24px;
-            animation: float 6s infinite;
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+            user-select: none;
         }
+
         @keyframes float {
             0%, 100% {
-                transform: translateY(0);
+                transform: translateY(0) rotate(0deg);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .fish {
+                font-size: 18px;
+            }
+
+            .fish:nth-child(2) {
+                font-size: 16px;
+            }
+
+            .fish:nth-child(3) {
+                font-size: 14px;
+            }
+
+            .fish:nth-child(4) {
+                font-size: 20px;
+            }
+
+            .fish:nth-child(5) {
+                font-size: 18px;
             }
         }
     </style>
@@ -177,22 +246,24 @@
         <h1>Pijana Ryba</h1>
         <p>"Pijana rybo! Ojczyzno moja! Ty jesteś jak wódka, Ile cię trzeba pić, ten tylko się dowie, Kto cię wypił. Dziś smak twój w całej ostrości Widzę i opisuję, bo tęsknię po tobie."</p>
     </div>
-    <!-- Snowflakes -->
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <!-- Hearts -->
-    <div class="heart" style="top: 10%; left: 5%;">❤️</div>
-    <div class="heart" style="top: 20%; left: 15%;">❤️</div>
-    <div class="heart" style="top: 30%; left: 25%;">❤️</div>
-    <div class="heart" style="top: 40%; left: 35%;">❤️</div>
-    <div class="heart" style="top: 50%; left: 45%;">❤️</div>
+
+    <!-- Płatki śniegu -->
+    <div class="snowflake" style="left: 5%; animation-duration: 8s;">❅</div>
+    <div class="snowflake" style="left: 15%; animation-duration: 10s;">❆</div>
+    <div class="snowflake" style="left: 25%; animation-duration: 12s;">❅</div>
+    <div class="snowflake" style="left: 35%; animation-duration: 9s;">❆</div>
+    <div class="snowflake" style="left: 45%; animation-duration: 11s;">❅</div>
+    <div class="snowflake" style="left: 55%; animation-duration: 7s;">❆</div>
+    <div class="snowflake" style="left: 65%; animation-duration: 8s;">❅</div>
+    <div class="snowflake" style="left: 75%; animation-duration: 10s;">❆</div>
+    <div class="snowflake" style="left: 85%; animation-duration: 9s;">❅</div>
+    <div class="snowflake" style="left: 95%; animation-duration: 12s;">❆</div>
+
+    <!-- Serca -->
+    <div class="heart" style="top: 10%; left: 5%; animation-duration: 5s;">❤️</div>
+    <div class="heart" style="top: 20%; left: 15%; animation-duration: 6s;">❤️</div>
+    <div class="heart" style="top: 30%; left: 25%; animation-duration: 7s;">❤️</div>
+    <div class="heart" style="top: 40%; left: 35%; animation-duration: 8s;">❤️</div>
+    <div class="heart" style="top: 50%; left: 45%; animation-duration: 9s;">❤️</div>
 </body>
 </html>
