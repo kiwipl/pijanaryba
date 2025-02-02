@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pijana Ryba - Luty</title>
+    <title>Pijana Ryba -  luty</title>
     <style>
         /* Resetowanie stylów */
         * {
@@ -14,7 +14,7 @@
 
         /* Stylowanie body */
         body {
-            background-color: #121212;
+            background: linear-gradient(135deg, #1a1a1a, #121212);
             font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: center;
@@ -29,30 +29,64 @@
         .container {
             max-width: 800px;
             width: 90%;
-            padding: 20px;
-            background-color: rgba(30, 30, 30, 0.8);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
+            padding: 40px;
+            background: rgba(30, 30, 30, 0.9);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
             position: relative;
             z-index: 2;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
 
         /* Nagłówek */
         h1 {
-            font-size: 48px;
+            font-size: 64px;
             color: #76c7c0;
             margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         /* Paragraf */
         p {
-            font-size: 18px;
+            font-size: 20px;
             color: #e0e0e0;
-            line-height: 1.6;
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
-        /* Animowane ryby */
+        /* Przycisk */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            color: #121212;
+            background: linear-gradient(135deg, #76c7c0, #50e3c2);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tło z efektem ruchu */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        /* Ryby */
         .fish {
             font-size: 24px;
             color: #76c7c0;
@@ -61,6 +95,7 @@
             animation: swim 8s linear infinite;
             filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5));
             z-index: 1;
+            top: var(--top);
         }
 
         @keyframes swim {
@@ -68,16 +103,9 @@
                 left: -10%;
                 transform: scaleX(1);
             }
-            50% {
+            100% {
                 left: 110%;
                 transform: scaleX(1);
-            }
-            50.01% {
-                transform: scaleX(-1);
-            }
-            100% {
-                left: -10%;
-                transform: scaleX(-1);
             }
         }
 
@@ -85,7 +113,7 @@
         .bubble {
             position: absolute;
             bottom: -50px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
             animation: rise 5s infinite;
             opacity: 0.8;
@@ -151,50 +179,55 @@
         /* Responsywność */
         @media (max-width: 768px) {
             h1 {
-                font-size: 36px;
+                font-size: 48px;
             }
 
             p {
-                font-size: 16px;
+                font-size: 18px;
             }
 
-            .fish {
-                font-size: 18px;
+            .btn {
+                font-size: 16px;
+                padding: 10px 20px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Tło z efektem ruchu -->
+    <div class="background">
+        <!-- Ryby -->
+        <div class="fish" style="--top: 10%; animation-duration: 8s;">><(((('></div>
+        <div class="fish" style="--top: 30%; animation-duration: 9s; color: #ff6b6b;">><(((('></div>
+        <div class="fish" style="--top: 50%; animation-duration: 7s; color: #f8e71c;">><(((('></div>
+        <div class="fish" style="--top: 70%; animation-duration: 10s; color: #50e3c2;">><(((('></div>
+        <div class="fish" style="--top: 90%; animation-duration: 6s; color: #7ed321;">><(((('></div>
+
+        <!-- Bąbelki -->
+        <div class="bubble" style="left: 20%; width: 10px; height: 10px; animation-duration: 7s;"></div>
+        <div class="bubble" style="left: 50%; width: 15px; height: 15px; animation-duration: 5s;"></div>
+        <div class="bubble" style="left: 80%; width: 8px; height: 8px; animation-duration: 6s;"></div>
+
+        <!-- Płatki śniegu -->
+        <div class="snowflake" style="left: 5%; animation-duration: 8s;">❅</div>
+        <div class="snowflake" style="left: 15%; animation-duration: 10s;">❆</div>
+        <div class="snowflake" style="left: 25%; animation-duration: 12s;">❅</div>
+        <div class="snowflake" style="left: 35%; animation-duration: 9s;">❆</div>
+        <div class="snowflake" style="left: 45%; animation-duration: 11s;">❅</div>
+
+        <!-- Serca -->
+        <div class="heart" style="top: 10%; left: 10%; animation-duration: 5s;">❤️</div>
+        <div class="heart" style="top: 20%; left: 80%; animation-duration: 6s;">❤️</div>
+        <div class="heart" style="top: 30%; left: 20%; animation-duration: 7s;">❤️</div>
+        <div class="heart" style="top: 40%; left: 70%; animation-duration: 8s;">❤️</div>
+        <div class="heart" style="top: 50%; left: 30%; animation-duration: 9s;">❤️</div>
+    </div>
+
     <!-- Kontener główny -->
     <div class="container">
         <h1>Pijana Ryba</h1>
         <p>"Pijana rybo! Ojczyzno moja! Ty jesteś jak wódka, Ile cię trzeba pić, ten tylko się dowie, Kto cię wypił. Dziś smak twój w całej ostrości Widzę i opisuję, bo tęsknię po tobie."</p>
+        <a href="#" class="btn">Dowiedz się więcej</a>
     </div>
-
-    <!-- Ryby -->
-    <div class="fish" style="top: 10%; animation-duration: 8s;">><(((('></div>
-    <div class="fish" style="top: 30%; animation-duration: 9s; color: #ff6b6b;">><(((('></div>
-    <div class="fish" style="top: 50%; animation-duration: 7s; color: #f8e71c;">><(((('></div>
-    <div class="fish" style="top: 70%; animation-duration: 10s; color: #50e3c2;">><(((('></div>
-    <div class="fish" style="top: 90%; animation-duration: 6s; color: #7ed321;">><(((('></div>
-
-    <!-- Bąbelki -->
-    <div class="bubble" style="left: 20%; width: 10px; height: 10px; animation-duration: 7s;"></div>
-    <div class="bubble" style="left: 50%; width: 15px; height: 15px; animation-duration: 5s;"></div>
-    <div class="bubble" style="left: 80%; width: 8px; height: 8px; animation-duration: 6s;"></div>
-
-    <!-- Płatki śniegu -->
-    <div class="snowflake" style="left: 5%; animation-duration: 8s;">❅</div>
-    <div class="snowflake" style="left: 15%; animation-duration: 10s;">❆</div>
-    <div class="snowflake" style="left: 25%; animation-duration: 12s;">❅</div>
-    <div class="snowflake" style="left: 35%; animation-duration: 9s;">❆</div>
-    <div class="snowflake" style="left: 45%; animation-duration: 11s;">❅</div>
-
-    <!-- Serca -->
-    <div class="heart" style="top: 10%; left: 10%; animation-duration: 5s;">❤️</div>
-    <div class="heart" style="top: 20%; left: 80%; animation-duration: 6s;">❤️</div>
-    <div class="heart" style="top: 30%; left: 20%; animation-duration: 7s;">❤️</div>
-    <div class="heart" style="top: 40%; left: 70%; animation-duration: 8s;">❤️</div>
-    <div class="heart" style="top: 50%; left: 30%; animation-duration: 9s;">❤️</div>
 </body>
 </html>
